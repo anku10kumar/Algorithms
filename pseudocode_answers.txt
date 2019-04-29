@@ -1,0 +1,55 @@
+Short Answer
+
+Why do programmers use pseudocode?
+
+A: The purpose of using pseudocode is that it is easier for people to understand than conventional programming language code, and that it is an efficient and environment-independent description of the key principles of an algorithm. 
+
+
+If you run pseudocode on your computer what would happen?
+
+A:  Pseudocode has no syntax like any of the programming language and thus can’t be compiled or interpreted by the computer.
+
+
+Programming Assignment
+
+
+Write the following algorithms in pseudocode:
+
+* Create a function that takes two numbers and prints out the greater number.
+
+PROGRAM PrintBiggerOfTwo: 
+
+Read A;
+Read B; 
+IF (A>B) 
+
+    THEN Print A;
+    ELSE Print B; 
+
+   ENDIF; 
+
+
+* Create a function that prints out the numbers from 1 to 100.
+
+PROGRAM Print1to100:
+
+  A = 1; 
+
+  WHILE (A!=101)
+
+  DO Print A; 
+
+      A = A+1; 
+
+ ENDWHILE; 
+
+* Create a function that searches for a specific entry in a phonebook.
+
+Get first entry; 
+Call this entry N; 
+WHILE N is NOT the required entry 
+DO Get next entry;
+   Call this entry N;
+ENDWHILE; 
+
+* Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
