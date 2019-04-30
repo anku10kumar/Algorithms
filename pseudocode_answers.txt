@@ -35,7 +35,7 @@ PROGRAM Print1to100:
 
   A = 1; 
 
-  WHILE (A!=101)
+  WHILE (A<101)
 
   DO Print A; 
 
@@ -53,3 +53,35 @@ DO Get next entry;
 ENDWHILE; 
 
 * Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
+
+1. function great(a,b){
+
+if (a>b) {
+ return a;  
+} else { 
+
+return b; 
+} 
+}
+
+2. function print1to100 (){ 
+
+var a = 1; 
+while (a < 101) {
+  console.log(a);
+  a++;
+}
+}
+print1to100()
+
+3. function entry(arr, N){
+
+for (var i= 0; i<arr.length; i++){
+
+while (arr[i] === N) { 
+
+return i} 
+
+
+
+
