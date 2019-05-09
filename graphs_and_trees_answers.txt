@@ -1,0 +1,106 @@
+1. What is a binary tree and what makes it unique to other trees?
+
+Answer: A Binary Tree is a data structure in which each Node may point to a left child and a right child.
+
+2. What is a heuristic?
+
+Answer: These are guesses that an algorithm makes to solve a complex problem sooner by sacrificing accuracy.
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+Answer:
+
+Antivirus software often uses heuristic rules for detecting viruses and other forms of malware. Heuristic scanning looks for code and/or behavioral patterns common to a class or family of viruses, with different sets of rules for different viruses. If a file or executing process is found to contain matching code patterns and/or to be performing that set of activities, then the scanner infers that the file is infected
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+Answer:
+
+DFS uses an algorithm for traversing or searching tree or graph data structures. Start at the root and explore as far as possible along each branch before backtracking.
+
+BFS uses an algorithm for traversing or searching tree or graph data structures. Start at the tree root and explore the neighbor nodes first, before moving to the next level neighbors.
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+Answer: 
+
+* The edges that have no characteristic other than connecting two vertices are called undirected edges. They distinctly lack direction.
+The clearest & largest form of graph classification begins with the type of edges within a graph. Two main types of edges exists: those with direction, & those without. An undirected graph, like the example simple graph, is a graph composed of undirected edges. 
+
+* Similarly, a weighted edge is simply an edge with an associated number, or value, alternatively known as a weight (usually in the form of non-negative integers). Weight values allow for modeling more complex problems that more accurately represent real-life systems through graphs. 
+
+* In graph theory, a cycle is a path of edges & vertices wherein a vertex is reachable from itself; in other words, a cycle exists if one can travel from a single vertex back to itself without repeating (retracing) a single edge or vertex along its path.
+A graph that contains at least one cycle is known as a cyclic graph. A graph without a single cycle is known as an acyclic graph. 
+
+6. What kind of graph is a binary search tree?
+
+Answer:Binary search tree is an directed, a-cyclic, and unweighted graph
+
+
+Programming Questions:
+
+For the following questions, describe in words how you could solve the problem and then do so. Use the depiction of the Binary Search Tree to refer to the examples.
+
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+Answer:
+
+// search for a node with given data
+search(node, data)
+{
+   // if tree is empty return null
+    if(node === null)
+        return null;
+
+    // if data is less than node's data
+    // move left
+    else if(data < node.data)
+        return this.search(node.left, data);
+
+    // if data is greater than node's data
+    // move right
+    else if(data > node.data)
+        return this.search(node.right, data);
+
+    // if data is equal to the node data
+    // return node
+    else
+        return node;
+}
+
+
+2. Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+Answer: We first find the Lowest common ancestor and then use that to find the number of edges between node 1 and node 2: 
+
+function findLowestCommonAncestor (node, value1, value2) {
+  if(node == null) {
+    return null;
+  }
+  if(node.value > value1 && node.value > value2) {
+    return findLowestCommonAncestor(node.left, value1, value2);
+  }
+  if(node.value < value1 && node.value < value2) {
+    return findLowestCommonAncestor(node.right, value1, value2);
+  }
+  return node;
+}
+
+function distanceBetweenTwoNodes(root, value1, value2) {
+  var common = findLowestCommonAncestor(root, value1, value2);
+
+  if(common == null || common == undefined) {
+    return -1;
+  }
+  if( distanceFromNode(common,value1) == -1 ) {
+    return -1;
+  }
+  if( distanceFromNode(common,value2) == -1 ) {
+    return -1;
+  }
+  return distanceFromNode(common,value1) + distanceFromNode(common,value2);
+
+}
+
+
