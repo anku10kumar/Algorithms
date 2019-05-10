@@ -1,0 +1,62 @@
+
+1. Define and compare recursion and iteration.
+
+Answer: The concept of Recursion and Iteration is to execute a set of instructions repeatedly. The difference between them is that recursion is simply a method call in which the method being called is the same as the one making the call while iteration is when a loop is repeatedly executed until a certain condition is met. Under the hood, both recursion and iteration depends on a condition so as to know when to stop but recursion is simply a process, always applied to a function.
+
+2. Name five algorithms that are commonly implemented by recursion.
+
+Answer: 
+
+          Recursive Binary Search
+           Fibonacci 
+           Merge sort
+           Quick sort
+           Factorial
+
+3. When should you use recursion, and when should you avoid recursion? Give examples for each.
+
+Answer: Fibonacci is defined as a pattern where every number is the sum of the two numbers before it. To find the nth number, you have to find n – 1 and n – 2. That definition just begs for a recursive solution because the problem relies on sub-problems being solved before it can be solved.
+
+That being said, what recursion adds in the beauty department, it loses in the time inefficiencies and (sometimes) oversight of logic flaws. Iterative loops don't have to rely on the call stack to store all their data, which means that when data gets large, they don't immediately run the risk of a stack overflow. Recursive functions do. Plus, if a loop is going to continue infinitely, it's much more obvious than if a recursive function is.
+
+4. Compare the recursive and iterative solutions to the three algorithms from the checkpoint (factorial, maximum, and fibonacci). What is similar, and what is different?
+
+Answer: When an algorithm can be defined as a combination of sub-results starting with known cases, then a recursive solution makes the most sense because that is precisely what it handles (e.g., factorial). And since loops are great at running straight through a data set, algorithms requiring a pass over a collection works well as an iterative solution (e.g., finding the maximum). However, sometimes you have to look closer at the costs of each implementation. In the case of fibonacci, the recursive implementation seems more straightforward, but the tendency to repeat calculations introduces a performance concern that outweighs the cost of the slightly more complex iterative implementation.
+
+5.Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection.
+
+Answer: 
+
+function countElements(arr){
+  var res = 0;
+  for(var i=0; i<arr.length; i++){
+    if(typeof arr[i] === "object"){
+      res += countElements(arr[i]);
+    } else {
+      res++;
+    }
+  } return res;
+}
+
+countElements([1,2,[3,4,5],6,[7,8]])
+
+6. A palindrome is a word or phrase whose spelling is the same either direction (e.g., racecar). Write a recursive algorithm to determine if a given word or phrase is a palindrome.
+
+Answer: 
+
+function isPalindrome(string) {      
+   if (string.length === 0 || string.length === 1) {        
+       return true;    
+    }        
+   if (string[0] === string[string.length - 1]) {        
+     return isPalindrome( string.slice(1, string.length - 1) );     
+   }       
+  return false;
+};
+isPalindrome('racecar');
+
+
+7. Google Easter Egg: Google the term "recursion". Google will prompt you with "Did you mean: recursion". Explain why this behavior exhibits properties of recursion.
+
+Answer: It exhibits properties of recursion as it is calling itself over and over again. 
+
