@@ -37,17 +37,17 @@ Answers: when you are running an algorithm to find all permutations of a given s
 
 6. Determine the time complexity of the following snippet of code. It is commonly known as a linear search.
 
-Answers: 0(1)
+Answers: 0(n)
 
 
 7. Determine the time complexity of the following snippet of code.
 
-Answers: O(n)
+Answers: O(n^2)
 
 8. Determine the time complexity of the following snippet of code. It is commonly known as the Fibonacci sequence.
 
-Answers: O(2^n) - exponential 
+Answers: O(2^n) 
 
 9. Out of the code snippets you just saw, which is the most time efficient?
 
-0(1) is the most efficient. 
+0(n) is the most efficient. 
