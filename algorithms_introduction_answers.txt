@@ -1,0 +1,68 @@
+1. Using proper pseudo-code, describe the following primitive algorithms:
+
+* Making coffee;
+
+PROGRAM makeCoffee
+SET Kettle to temp 
+ADD one cup water
+ADD one spoon coffee powder
+
+WHILE water is boiling
+   add dash of milk;
+ENDWHILE
+
+IF sugar is required
+  add two sugars
+ ELSE skip sugar
+ENDIF
+END PROGRAM
+
+
+* Washing dishes;
+
+PROGRAM washDishes
+ Stack the dirty dishes
+ RUN the water && rinse the dishes
+
+WHILE dishwasher is NOT full
+   keep loading the dishwasher
+ENDWHILE
+ ADD detergent && close the dishwasher 
+ RUN dishwasher; 
+END PROGRAM 
+
+A choice of your own - Doing Laundry 
+
+PROGRAM cleanLaundry
+
+ INIT washer
+  Separate white && colored clothes
+ WHILE washer is NOT full
+   keep loading washer
+ ENDWHILE
+  ADD detergent
+  RUN washer;
+
+INIT dryer; 
+ ADD clothes from washer to dryer 
+ ADD dryer sheets
+ SET Timer
+ RUN dryer
+
+END PROGRAM
+
+
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+Answer: Netflix -for content screening, Amazon- for online shopping, Match.com -for online dating. 
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+Answer: In computer science, algorithmic efficiency is a property of an algorithm which relates to the number of computational resources used by the algorithm. An algorithm must be analyzed to determine its resource usage, and the efficiency of an algorithm can be measured based on usage of different resources. Algorithmic efficiency can be thought of as analogous to engineering productivity for a repeating or continuous process.
+
+For maximum efficiency we wish to minimize resource usage. However, different resources such as time and space complexity cannot be compared directly, so which of two algorithms is considered to be more efficient often depends on which measure of efficiency is considered most important.
+
+If large lists must be sorted at high speed for a given application, timesort is a better choice; however, if minimizing the memory footprint of the sorting is more important, bubble sort is a better choice.
+
+An algorithm is considered efficient if its resource consumption, also known as computational cost, is at or below some acceptable level. 
