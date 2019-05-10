@@ -54,28 +54,20 @@ END WHILE
 END FUNCTION
 
 
-    function linkedList(headNode) {
-      this.headNode = null;
-    }
-    
-    linkedList.prototype.add = function(element) {
-      let node = {
-        value: element,
-        next: null
-      };
-      if (this.headNode == null) {
-        this.headNode = node;
-        return this.headNode;
-      } else {
-        let current = this.headNode;
-        while
-        (current.next != null){
-          return current = current.next;
-        }
-        current.next = node;
-        return current;
-      }
-    };
+function ListNode(val){
+
+  this.val = val;
+  this.next = null;
+}
+
+const listNode = new ListNode('a')
+listNode.next = new ListNode('b')
+listNode.next.next = new ListNode('c')
+listNode.next.next.next = new ListNode('d')
+
+console.log(listNode);
+
+
 
 2. Given an unsorted singly linked list, remove all duplicates from the linked list.
 
