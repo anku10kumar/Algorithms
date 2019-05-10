@@ -1,0 +1,53 @@
+1. What is time complexity and what is its relation to algorithms?
+
+Answers: The time complexity is the computational complexity that describes the amount of time it takes to run an algorithm. Time complexity is commonly estimated by counting the number of elementary operations performed by the algorithm. 
+
+2. What is runtime?
+
+Answers: The running time of an algorithm for a specific input depends on the number of operations executed. The greater the number of operations, the longer the running time of an algorithm. We usually want to know how many operations an algorithm will execute in proportion to the size of its input, which we will call .
+
+3. How is the runtime of an algorithm calculated?
+
+Answers: You add up how many machine instructions it will execute as a function of the size of its input, and then simplify the expression to the largest (when N is very large) term and can include any simplifying constant factor.
+
+4. Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
+
+Answers: 
+
+
+▪ Constant Growth Rate - An algorithm that will always execute in the same amount of time regardless of the size of the input data set (O(1)).
+
+▪ A logarithmic algorithm – O(logn) - An algorithm which halves the dataset with each iteration 
+
+▪ A linear algorithm – An algorithm whose performance will grow linearly and in direct proportion to the size of the input data set (O(n)).
+
+▪ A Log-Linear Growth Rate – O(nlogn) - An algorithm which halves the data each time for each of n times
+
+▪ Quadratic Growth Rate - An algorithm whose performance is directly proportional to the square of the size of the input data set (O(n^2)).
+
+▪ Exponential Growth Rate - An algorithm whose growth doubles with each addition to the input data set (O(2^n)).
+
+▪ A factorial algorithm – O(n!)
+Runtime grows the fastest and becomes quickly unusable for even small values of n.
+
+5. Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation.
+
+Answers: when you are running an algorithm to find all permutations of a given set/string, we would use the factorial algorithm.  
+
+
+6. Determine the time complexity of the following snippet of code. It is commonly known as a linear search.
+
+Answers: 0(1)
+
+
+7. Determine the time complexity of the following snippet of code.
+
+Answers: O(n)
+
+8. Determine the time complexity of the following snippet of code. It is commonly known as the Fibonacci sequence.
+
+Answers: O(2^n) - exponential 
+
+9. Out of the code snippets you just saw, which is the most time efficient?
+
+0(1) is the most efficient. 
