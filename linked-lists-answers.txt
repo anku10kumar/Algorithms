@@ -54,74 +54,183 @@ END WHILE
 END FUNCTION
 
 
-function ListNode(val){
+function LinkedList() {
+    var length = 0;
+    var head = null;
 
-  this.val = val;
-  this.next = null;
+    var Node = function(element) {
+        this.element = element;
+        this.next = null;
+    }
+
+    this.length = function() {
+        return length;
+    }
+
+    this.head = function() {
+        return head;
+    }
+
+    this.push = function(element) {
+        var node = new Node(element);
+        if (head === null) {
+            head = node;
+        }
+        else {
+            var currentNode = head;
+            while (currentNode.next != null) {
+                currentNode = currentNode.next;
+            }
+            currentNode.next = node;
+        }
+        length++;
+    }
 }
 
-const listNode = new ListNode('a')
-listNode.next = new ListNode('b')
-listNode.next.next = new ListNode('c')
-listNode.next.next.next = new ListNode('d')
 
-console.log(listNode);
-
+let newList = new LinkedList()
+newList.push("a")
+newList.push("c")
+newList.push("d")
+newList.push("d")
+newList.push("a")
+console.log(newList.length());
+console.log(newList.head());
 
 
 2. Given an unsorted singly linked list, remove all duplicates from the linked list.
 
 Answer: 
 
-var inputArr = ['a','c','d','d','a'];
+function LinkedList() {
+    var length = 0;
+    var head = null;
 
-function rmDup(inputArr){
-  for (let i = 0; i<inputArr.length; i++){
-    let ell = inputArr[i];
-    (function tracer(currentIndex){
-      if(currentIndex ===inputArr.length) return
-      if(inputArr[currentIndex]===ell){
-        let temp = ell;
-        inputArr[currentIndex] = inputArr[inputArr.length-1]
-        inputArr[inputArr.length-1] = temp;
-        inputArr.pop();
-        tracer(currentIndex)
-      } else{
-        tracer(currentIndex+1)
-      }
-    })(i+1);
-  }
+    var Node = function(element) {
+        this.element = element;
+        this.next = null;
+    }
+
+    this._length = function() {
+        return length;
+    }
+
+    this._head = function() {
+        return head;
+    }
+
+    this.push = function(element) {
+        var node = new Node(element);
+        if (head === null) {
+            head = node;
+        }
+        else {
+            var currentNode = head;
+            while (currentNode.next) {
+                currentNode = currentNode.next;
+            }
+            currentNode.next = node;
+        }
+        length++;
+    }
+
+    this.removeDuplicates = function() {
+        console.log(head);
+        if (!head || !head.next) {
+            console.log('No duplicates found.');
+            return;
+        }
+        var nodes = {};
+        var node1 = head;
+        var node2 = node1.next;
+        nodes[node1.element] = true;
+
+      while (node2) {
+        console.log(node1.element);
+
+        var element = node2.element;
+        if (nodes[element]) {
+              node1.next = node2.next;
+              length--;
+            }
+            else {
+                nodes[element] = true;
+                node1 = node2;
+            }
+            node2 = node2.next;
+        }
+    }
 }
 
-rmDup(inputArr);
-console.log(inputArr)
+var letterDuplicate = new LinkedList();
+letterDuplicate.push('a');
+letterDuplicate.push('c');
+letterDuplicate.push('d');
+letterDuplicate.push('d');
+letterDuplicate.push('a');
+letterDuplicate.removeDuplicates();
+console.log(letterDuplicate._head());
+
 
 3. Given an unsorted singly linked list, reverse it.
 
 Answer: 
 
-function ListNode(val){
+function LinkedList() {
+    var length = 0;
+    var head = null;
 
-  this.val = val;
-  this.next = null;
+    var Node = function(element) {
+        this.element = element;
+        this.next = null;
+    }
+
+    this._length = function() {
+        return length;
+    }
+
+    this._head = function() {
+        return head;
+    }
+
+    this.push = function(element) {
+        var node = new Node(element);
+        if (head === null) {
+            head = node;
+        }
+        else {
+            var currentNode = head;
+            while (currentNode.next) {
+                currentNode = currentNode.next;
+            }
+            currentNode.next = node;
+        }
+        length++;
+    }
+
+    this.reverse = function() {
+        var previousNode = null;
+        var thisNode = head;
+
+        var nextNode;
+
+        while (thisNode) {
+            nextNode = thisNode.next;
+            thisNode.next = previousNode;
+            previousNode = thisNode;
+            thisNode = nextNode;
+        }
+        this.head = previousNode;
+    }
 }
 
-const listNode = new ListNode('a')
-listNode.next = new ListNode('b')
-listNode.next.next = new ListNode('c')
-listNode.next.next.next = new ListNode('d')
-
-function reverseList(oldHead){
-let newHead =null
-while(oldHead){
-  let temp = oldHead.next;
-  oldHead.next = newHead;
-  newHead= oldHead;
-  oldHead = temp;
-}
-return newHead;
-}
-console.log(reverseList(listNode));
+var reverseList = new LinkedList();
+reverseList.push('a');
+reverseList.push('b');
+reverseList.push('c');
+reverseList.push('d');
+reverseList.reverse();
+console.log(reverseList);
 
 
 
