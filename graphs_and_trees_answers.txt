@@ -46,27 +46,19 @@ For the following questions, describe in words how you could solve the problem a
 
 Answer:
 
-// search for a node with given data
-search(node, data)
-{
-   // if tree is empty return null
-    if(node === null)
-        return null;
+function findNumber(numberToFind) {
+  var currentNode = this.root;
 
-    // if data is less than node's data
-    // move left
-    else if(data < node.data)
-        return this.search(node.left, data);
-
-    // if data is greater than node's data
-    // move right
-    else if(data > node.data)
-        return this.search(node.right, data);
-
-    // if data is equal to the node data
-    // return node
-    else
-        return node;
+  while (currentNode != null) {
+    if (numberToFind === currentNode.value) {
+      return "The value " + currentNode.value + " exists in the list";
+    } else if (numberToFind < currentNode.value){
+      currentNode = currentNode.left;
+    } else {
+      currentNode = currentNode.right;
+    }
+  }
+  return "The value " + numberToFind + " does not exist in the list";
 }
 
 
@@ -74,14 +66,69 @@ search(node, data)
 
 Answer: We first find the Lowest common ancestor and then use that to find the number of edges between node 1 and node 2: 
 
-function findLowestCommonAncestor (node, value1, value2) {
-  if(node == null) {
+function Node(value) {
+  this.value = value;
+  this.left = null;
+  this.right = null;
+}
+
+function BinarySearchTree() {
+  this.root = null;
+}
+
+BinarySearchTree.prototype.push = function(val) {
+
+  if (this.root === null) {
+    this.root = new Node(val);
+  } else {
+    var currentNode = this.root;
+    while (currentNode != null) {
+      if (val < currentNode.value) {
+        if (currentNode.left == null) {
+          currentNode.left = new Node(val);
+          break;
+        } else {
+          currentNode = currentNode.left;
+        }
+      } else {
+        if (currentNode.right == null) {
+          currentNode.right = new Node(val);
+          break;
+        } else {
+          currentNode = currentNode.right;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+function distanceFromNode(node, value) {
+  if (node == null) {
+    return undefined;
+  }
+  if (node.value == value) {
+    return 0;
+  } else {
+    if (value < node.value) {
+      return 1 + distanceFromNode(node.left, value);
+    } else if (value > node.value) {
+      return 1 + distanceFromNode(node.right, value);
+    }
+  }
+}
+
+
+function findLowestCommonAncestor(node, value1, value2) {
+  if (node == null) {
     return null;
   }
-  if(node.value > value1 && node.value > value2) {
+  if (node.value > value1 && node.value > value2) {
     return findLowestCommonAncestor(node.left, value1, value2);
   }
-  if(node.value < value1 && node.value < value2) {
+  if (node.value < value1 && node.value < value2) {
     return findLowestCommonAncestor(node.right, value1, value2);
   }
   return node;
@@ -90,17 +137,31 @@ function findLowestCommonAncestor (node, value1, value2) {
 function distanceBetweenTwoNodes(root, value1, value2) {
   var common = findLowestCommonAncestor(root, value1, value2);
 
-  if(common == null || common == undefined) {
+  if (common == null || common == undefined) {
     return -1;
   }
-  if( distanceFromNode(common,value1) == -1 ) {
+  if (distanceFromNode(common, value1) == -1) {
     return -1;
   }
-  if( distanceFromNode(common,value2) == -1 ) {
+  if (distanceFromNode(common, value2) == -1) {
     return -1;
   }
-  return distanceFromNode(common,value1) + distanceFromNode(common,value2);
+  return distanceFromNode(common, value1) + distanceFromNode(common, value2);
 
 }
 
+function testCode() {
+  var test = [4, 64, 9, 2, 7, 3, 12, 8, 56];
+  var binaryTree = new BinarySearchTree();
+  var root = new Node(test[0]);
+  binaryTree.root = root;
 
+  for (var i = 1; i < test.length; i++) {
+    binaryTree.push(test[i]);
+  }
+
+  var distance = distanceBetweenTwoNodes(root, 8, 4);
+  console.log(distance);
+}
+
+testCode();
