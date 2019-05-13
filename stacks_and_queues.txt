@@ -37,43 +37,82 @@ function hello(str){
 2. Implement the pop method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
 
 
- var stack = []; 
- stack.push(2);
- stack.push(8);
- stack.push(6); 
- var i = stack.pop(); 
- console.log(stack); 
-      
-  var queue = []; 
-  queue.push(2);
-  queue.push(5);
-  queue.push(3); 
-  var i = queue.shift(); 
-  console.log(queue); 
-
 To delete an item, take all of the elements in the queue one at a time and put them at the end of the queue, except for the last one which should be removed and returned.
+
+Answer: 
+
+const Queue = function() {
+  this.storage = {};
+  this.count = 0;
+}
+  Queue.prototype.enqueue = function (value) {
+    if (value) {
+      this.storage[this.count] = value
+      this.count++
+    }
+  }
+
+  Queue.prototype.pop = function() {
+    if (this.count === 0) {
+      return undefined
+    }
+
+    this.count--
+    let result = this.storage[this.count]
+    delete this.storage[this.count]
+    return result
+  }
+
+  Queue.prototype.size = function() {
+    return this.count
+  }
+  
+
+
+let newQueue = new Queue()
+newQueue.enqueue("push")
+newQueue.enqueue("pop")
+newQueue.enqueue("delete")
+newQueue.pop()
+
 
 1. Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
 
 Answer:
 
-function Queue() {
-      this.data = [];
-    }
-    Queue.prototype.add = function(record) {
-      this.data.unshift(record);
-    }
-    Queue.prototype.remove = function() {
-      this.data.pop();
-    }
-    const q = new Queue();
-    q.add(1);
-    q.add(2);
-    q.add(3);
-    console.log(q);
-    
-    q.remove();
-    console.log(q);
+const Queue = function() {
+  this.storage = {};
+  this.count = 0;
+  this.lowestCount = 0;
+}
+
+Queue.prototype.enqueue = function(value) {
+  if (value) {
+    this.storage[this.count] = value
+    this.count++
+  }
+}
+
+Queue.prototype.dequeue = function() {
+  if(this.count - this.lowestCount === 0) {
+    return undefined
+  }
+
+  let result = this.storage[this.lowestCount]
+  delete this.storage[this.lowestCount]
+  this.lowestCount++
+  return result
+}
+
+Queue.prototype.size = function() {
+  return this.count - this.lowestCount
+}
+
+let newQueue = new Queue()
+newQueue.enqueue(1)
+newQueue.enqueue(2)
+newQueue.enqueue(3)
+newQueue.dequeue()
 
 
 
