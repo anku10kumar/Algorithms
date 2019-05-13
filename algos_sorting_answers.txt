@@ -1,0 +1,77 @@
+### Questions: 
+
+
+1. Implement a solution for bubble sort.
+
+Answer: 
+
+function bubbleSort(arr) {
+
+  var values = arr.slice();
+  var length = values.length - 1;
+  do {
+    var swapped = false;
+
+    for (var i = 0; i < length; i++) {
+
+      if (values[i] > values[i + 1]) {
+
+        var temp = values[i];
+        values[i] = values[i + 1];
+        values[i + 1] = temp;
+        swapped = true;
+      }
+    }
+  }
+  while (swapped === true);
+
+  return (values);
+
+}
+
+arr = [2, 6, 1, 9, 0]
+console.log(bubbleSort(arr));
+
+2 .Write pseudocode for quicksort.
+
+Answer: 
+
+FUNCTION quickSort(collection) 
+  IF collection length <= 1 then
+    RETURN collection
+  ELSE
+    SET pivot to last element in collection
+      Remove last element in collection
+    SET left to empty array
+    SET right to empty array
+    SET new array to empty array
+    
+    FOR each i in 0 to collection length - 1
+      IF collection[i] <= pivot
+        APPEND collection[i] to left
+      ELSE
+        APPEND collection[i] to right
+      END IF
+      INCREMENT i
+    END FOR
+
+    CONCAT quickSort(left), pivot, quickSort(right) with newArray
+    RETURN newArray
+  END IF
+END FUNCTION 
+
+3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
+
+Answer: 
+
+Time complexity of Merge and quick sort is O(nLogn). Quick sort is preferred for smaller arrays while merge sort is preferred for linked lists. 
+
+
+4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+Answer: Bucket sort, or bin sort, is a sorting algorithm that works by distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm. 
+
+The time complexity is typically O(n2); 
+
+Bucket sort is mainly useful when input is uniformly distributed over a range. For example, consider the following problem. 
+Sort a large set of floating point numbers which are in range from 0.0 to 1.0 and are uniformly distributed across the range. How do we sort the numbers efficiently?
