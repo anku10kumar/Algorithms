@@ -13,7 +13,6 @@ Pros:
 * Data structures such as stack and queues can be easily implemented using linked list.
 
 
-
 Cons: 
 
 * Elements or nodes traversal is difficult in linked list. We can not randomly access any element as we do in array by index.
